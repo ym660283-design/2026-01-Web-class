@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko"> <!-- 문서의 최상위 루트, HTML5 문서 선언 -->
+<head> <!-- 문서 메타데이터(제목, 문자셋, 스타일 등) 포함 -->
+    <meta charset="UTF-8"> <!-- 문자 인코딩 설정 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 반응형을 위한 화면 설정 -->
+    <title>HTML5 기본 구조 연습</title> <!-- 브라우저 탭 제목 -->
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f8; }
+        .box { border: 1px solid #ccc; background: #fff; padding: 12px; margin-bottom: 10px; }
+        .row { display: flex; gap: 10px; flex-wrap: wrap; }
+        .column { flex: 1 1 300px; }
+        .highlight { color: #1f5a9f; font-weight: bold; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #888; padding: 6px; text-align: left; }
+        a { color: #1a0dab; }
+    </style> <!-- 최소한의 CSS로 보기 좋게 구성 -->
+</head>
+<body> <!-- 실제 화면에 표시되는 문서 내용 -->
+    <div class="box"> <!-- 구획 나누기 용도, 블록 레벨 요소 -->
+        <h1>HTML5 기본 구조와 자주 쓰는 태그</h1> <!-- 가장 큰 제목 -->
+        <p>이 문서는 HTML5의 기본 구조와 자주 쓰는 태그를 눈으로 확인할 수 있게 작성된 예제입니다.</p> <!-- 문단 -->
+    </div>
+
+    <div class="box row">
+        <div class="column">
+            <h2>1) 기본 구조</h2>
+            <ul> <!-- 순서 없는 리스트 -->
+                <li><span class="highlight">&lt;!DOCTYPE html&gt;</span> : HTML5 문서임을 선언</li>
+                <li><span class="highlight">&lt;html&gt;</span> : 문서의 루트 요소</li>
+                <li><span class="highlight">&lt;head&gt;</span> : 제목/메타/스타일 정보</li>
+                <li><span class="highlight">&lt;body&gt;</span> : 화면에 보이는 내용</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h2>2) 자주 쓰는 태그</h2>
+            <p><span class="highlight">&lt;h1&gt;~&lt;h6&gt;</span> : 제목 크기 (h1이 제일 큼)</p>
+            <p><span class="highlight">&lt;p&gt;</span> : 문단</p>
+            <p><span class="highlight">&lt;div&gt;</span> : 블록 컨테이너</p>
+            <p><span class="highlight">&lt;span&gt;</span> : 인라인 컨테이너</p>
+            <p><span class="highlight">&lt;a&gt;</span> : 링크</p>
+            <p><span class="highlight">&lt;img&gt;</span> : 이미지</p>
+            <p><span class="highlight">&lt;table&gt; / &lt;tr&gt; / &lt;th&gt; / &lt;td&gt;</span> : 표</p>
+        </div>
+    </div>
+
+    <div class="box">
+        <h3>3) 예제 태그 배치</h3>
+        <div class="box">
+            <h4>제목 태그</h4>
+            <h1>h1 제목</h1>
+            <h2>h2 제목</h2>
+            <h3>h3 제목</h3>
+            <h4>h4 제목</h4>
+            <h5>h5 제목</h5>
+            <h6>h6 제목</h6>
+        </div>
+
+        <div class="box">
+            <p>문단 태그 <span style="color:#c0392b;">span(인라인)</span>을 포함한 예시입니다.</p>
+            <div style="padding:8px; background:#eef;">div(블록) 내부에 또 다른 문단과 링크가 있습니다.</div>
+            <p>여기에서 <a href="https://www.google.com" target="_blank" rel="noopener">구글 링크</a>를 확인하세요.</p>
+            <!-- fronty 페이지에서 가져온 이미지 -->
+            <img src="https://fronty.com/static/uploads/seo/img.png" alt="What Is Image Tag Conversion In HTML" style="display:block; width:260px; margin-top:8px; border:1px solid #ccc;" />
+        </div>
+
+        <div class="box">
+            <h4>표 태그 예제</h4>
+            <table>
+                <tr><th>번호</th><th>항목</th><th>설명</th></tr>
+                <tr><td>1</td><td>HTML</td><td>웹 페이지 구조 언어</td></tr>
+                <tr><td>2</td><td>CSS</td><td>스타일링 언어</td></tr>
+                <tr><td>3</td><td>JavaScript</td><td>동적인 동작 처리</td></tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
