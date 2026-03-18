@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시맨틱 태그 블로그 예제</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f6fb; color:#333; }
+    .container { width: min(1000px, 95%); margin: 20px auto; }
+    header, nav, main, section, article, aside, footer, figure { background:#fff; border:1px solid #d6d9e2; border-radius:6px; margin-bottom:12px; padding:10px; }
+    nav { background:#eef2ff; }
+    .flex { display:flex; gap:12px; }
+    .flex > * { flex:1; }
+    aside { background:#fbfbff; }
+    figure { margin: 0; padding: 10px; background:#f8f9ff; }
+    figcaption { font-size:0.9em; color:#555; }
+    time { display:inline-block; font-size:0.85em; color:#667; margin-left:6px; }
+    details { margin-top:10px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>블로그 기사 제목</h1>
+      <p>시맨틱 태그로 구성한 간단한 블로그 레이아웃 예제입니다.</p>
+    </header>
+
+    <nav>
+      <a href="#">홈</a> | <a href="#">기술</a> | <a href="#">디자인</a> | <a href="#">연락</a>
+    </nav>
+
+    <main class="flex">
+      <section style="flex:2;">
+        <article>
+          <h2>오늘의 기술 트렌드</h2>
+          <p>이 문단은 <mark>중요한 키워드</mark>를 강조하는 예시입니다. 기본적인 블로그 기사 본문을 담고 있습니다.</p>
+          <p>이 글은 시맨틱 요소를 사용하여 구조를 명확히 하는 목적을 갖습니다.</p>
+          <figure>
+            <img src="https://via.placeholder.com/760x280" alt="예시 이미지" style="width:100%; height:auto; border-radius:4px;">
+            <figcaption>기사 내용 관련 예시 이미지와 설명</figcaption>
+          </figure>
+          <p>추가 텍스트는 더미 텍스트 형태로 빠르게 채워집니다.</p>
+          <p>작성일: <time datetime="2026-03-18">2026년 3월 18일</time></p>
+          <details>
+            <summary>자세히 보기</summary>
+            <p>이 섹션은 추가 설명을 보여 주는 details/summary 컴포넌트입니다.</p>
+          </details>
+        </article>
+      </section>
+
+      <aside style="flex:1;">
+        <h3>관련 콘텐츠</h3>
+        <ul>
+          <li><a href="#">빠른 개발 팁</a></li>
+          <li><a href="#">UX 디자인 가이드</a></li>
+          <li><a href="#">HTML5 시맨틱 태그</a></li>
+        </ul>
+        <p>사이드바 영역은 부가 정보, 추천 링크, 광고 등 보조 콘텐츠에 사용됩니다.</p>
+      </aside>
+    </main>
+
+    <footer>
+      <p>블로그 예제 &copy; 2026. 간단한 시맨틱 태그 레이아웃</p>
+    </footer>
+  </div>
+</body>
+</html>

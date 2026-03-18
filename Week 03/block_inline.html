@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko"> <!-- HTML5 문서의 루트 -->
+<head> <!-- 문서 메타 데이터 영역 -->
+    <meta charset="UTF-8"> <!-- 문자 인코딩 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 반응형 뷰포트 -->
+    <title>Block vs Inline 태그 연습</title> <!-- 브라우저 탭 제목 -->
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background:#f8f9fc; }
+        .card { border: 1px solid #ccc; background:#fff; border-radius:8px; padding:12px; margin-bottom:14px; }
+        .row { display:flex; gap: 10px; flex-wrap: wrap; }
+        .box { flex:1 1 280px; min-width:220px; border:1px dashed #aaa; padding:8px; }
+        .inline-sample { display:inline-block; padding:4px 8px; margin:2px; border:1px solid #2d7f9f; background:#eaf5fb; }
+    </style>
+</head>
+<body> <!-- 화면에 보이는 내용 -->
+    <div class="card">
+        <h1>HTML5 기본 구조 & 자주 쓰는 태그</h1> <!-- 제목 -->
+        <p>이 문서는 블록/인라인 태그를 함께 연습하기 위한 학습용 예제입니다.</p>
+    </div>
+
+    <div class="card row">
+        <div class="box">
+            <h2>기본 구조</h2>
+            <ul> <!-- 순서 없는 목록 -->
+                <li>&lt;!DOCTYPE html&gt; : HTML5 선언</li>
+                <li>&lt;html&gt; : 루트 요소</li>
+                <li>&lt;head&gt; : 메타데이터 포함</li>
+                <li>&lt;body&gt; : 콘텐츠 표시</li>
+            </ul>
+        </div>
+        <div class="box">
+            <h2>자주 쓰는 태그</h2>
+            <p>&lt;h1&gt;~&lt;h6&gt; : 제목</p>
+            <p>&lt;p&gt; : 문단</p>
+            <p>&lt;div&gt; : 블록 컨테이너</p>
+            <p>&lt;span&gt; : 인라인 컨테이너</p>
+            <p>&lt;ul&gt; / &lt;ol&gt; / &lt;li&gt; : 목록</p>
+            <p>&lt;a&gt; : 링크</p>
+            <p>&lt;img&gt; : 이미지</p>
+            <p>&lt;table&gt; / &lt;tr&gt; / &lt;th&gt; / &lt;td&gt; : 표</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>태그 배치 예제</h2>
+        <div class="card">
+            <h3>제목 h1~h6</h3>
+            <h1>h1 제목</h1>
+            <h2>h2 제목</h2>
+            <h3>h3 제목</h3>
+            <h4>h4 제목</h4>
+            <h5>h5 제목</h5>
+            <h6>h6 제목</h6>
+        </div>
+
+        <div class="card">
+            <h3>문단과 div/span</h3>
+            <p>이 문장은 &lt;span&gt; 내부의 <span class="inline-sample">인라인 텍스트</span>를 포함합니다.</p>
+            <div style="padding:8px; background:#f2f7ff; border:1px solid #c7def4;">div는 블록 요소로 전체 너비 차지</div>
+        </div>
+
+        <div class="card">
+            <h3>목록 (ul/ol/li)</h3>
+            <ul>
+                <li>ul - 순서 없는 목록</li>
+                <li>li - 목록 항목</li>
+            </ul>
+            <ol>
+                <li>ol - 순서 있는 목록</li>
+                <li>li - 목록 항목</li>
+            </ol>
+        </div>
+
+        <div class="card">
+            <h3>링크 + 이미지</h3>
+            <p>이 링크는 <a href="https://fronty.com/what-is-image-tag-conversion-in-html/" target="_blank" rel="noopener">Fronty 이미지 태그 변환 설명</a>으로 연결됩니다.</p>
+            <img src="https://fronty.com/static/uploads/seo/img.png" alt="Fronty Image Tag Conversion" style="width:300px; border:1px solid #bbb;" />
+        </div>
+
+        <div class="card">
+            <h3>표 (table) 예제</h3>
+            <table>
+                <tr>
+                    <th>번호</th><th>태그</th><th>역할</th>
+                </tr>
+                <tr>
+                    <td>1</td><td>&lt;h1&gt;</td><td>큰 제목</td>
+                </tr>
+                <tr>
+                    <td>2</td><td>&lt;p&gt;</td><td>문단</td>
+                </tr>
+                <tr>
+                    <td>3</td><td>&lt;img&gt;</td><td>이미지 표시</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
