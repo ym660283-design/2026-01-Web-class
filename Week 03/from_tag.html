@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML 폼 태그 테스트</title>
+  <style>
+    body { margin: 20px; font-family: Arial, sans-serif; background:#f2f4fa; }
+    .container { width: min(960px, 95%); margin:0 auto; background:#fff; border:1px solid #d8dee9; border-radius:8px; padding:16px; }
+    h1 { margin-top:0; }
+    fieldset { margin-bottom:14px; border:1px solid #aac; background:#f9fbff; }
+    legend { font-weight:bold; }
+    .row { display:flex; flex-wrap:wrap; gap:12px; }
+    .item { flex:1 1 240px; min-width:220px; }
+    label { display:block; font-size:0.9rem; margin-bottom:4px; }
+    input, select, textarea, button { width:100%; padding:6px 8px; margin-bottom:8px; border:1px solid #b8c4d5; border-radius:4px; }
+    textarea { resize:vertical; min-height:60px; }
+    .note { font-size:0.85rem; color:#555; }
+    .actions { display:flex; gap:8px; flex-wrap:wrap; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>HTML 폼 태그 및 input 타입 테스트</h1>
+    <form action="#" method="post">
+      <fieldset>
+        <legend>텍스트 입력</legend>
+        <div class="row">
+          <div class="item"><label for="txt1">text: 기본 텍스트</label><input id="txt1" type="text" placeholder="일반 텍스트"></div>
+          <div class="item"><label for="pwd1">password: 비밀번호</label><input id="pwd1" type="password" placeholder="비밀번호"></div>
+          <div class="item"><label for="email1">email: 이메일</label><input id="email1" type="email" placeholder="abc@domain.com"></div>
+          <div class="item"><label for="url1">url: 사이트 주소</label><input id="url1" type="url" placeholder="https://example.com"></div>
+          <div class="item"><label for="tel1">tel: 전화번호</label><input id="tel1" type="tel" placeholder="010-1234-5678"></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>숫자/범위/날짜/시간</legend>
+        <div class="row">
+          <div class="item"><label for="num1">number: 숫자</label><input id="num1" type="number" min="1" max="100" value="10"></div>
+          <div class="item"><label for="range1">range: 슬라이더</label><input id="range1" type="range" min="0" max="10" value="5"></div>
+          <div class="item"><label for="date1">date: 날짜</label><input id="date1" type="date"></div>
+          <div class="item"><label for="time1">time: 시간</label><input id="time1" type="time"></div>
+          <div class="item"><label for="dtl1">datetime-local: 날짜+시간</label><input id="dtl1" type="datetime-local"></div>
+          <div class="item"><label for="month1">month: 연월</label><input id="month1" type="month"></div>
+          <div class="item"><label for="week1">week: 주</label><input id="week1" type="week"></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>선택 요소</legend>
+        <div class="row">
+          <div class="item"><label for="select1">select + option</label><select id="select1"><option>옵션 1</option><option selected>옵션 2</option><option>옵션 3</option></select></div>
+          <div class="item"><label for="textarea1">textarea</label><textarea id="textarea1" placeholder="여러 줄 입력"></textarea></div>
+          <div class="item"><label>checkbox</label><input type="checkbox" id="cb1"><label for="cb1" class="note">구독 동의</label></div>
+          <div class="item"><label>radio</label><input type="radio" id="rd1" name="radioGroup"><label for="rd1" class="note">선택 A</label><br><input type="radio" id="rd2" name="radioGroup"><label for="rd2" class="note">선택 B</label></div>
+          <div class="item"><label for="file1">file: 파일 업로드</label><input id="file1" type="file"></div>
+          <div class="item"><label for="color1">color: 색상 선택</label><input id="color1" type="color" value="#0066cc"></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>datalist + hidden</legend>
+        <div class="row">
+          <div class="item"><label for="city">datalist: 도시 추천</label><input id="city" list="cities" placeholder="도시 입력"><datalist id="cities"><option value="서울"><option value="부산"><option value="대전"></datalist></div>
+          <div class="item"><label for="hidden1">hidden: 숨김 값</label><input id="hidden1" type="hidden" value="hidden-data"><span class="note">숨김 필드(보이지 않음)</span></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>버튼</legend>
+        <div class="actions">
+          <button type="submit">submit</button>
+          <button type="reset">reset</button>
+          <button type="button">button</button>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>fieldset/legend 예시</legend>
+        <label for="example">label 연결 예시</label>
+        <input id="example" type="text" placeholder="레이블 클릭 시 포커스">
+      </fieldset>
+    </form>
+  </div>
+</body>
+</html>
