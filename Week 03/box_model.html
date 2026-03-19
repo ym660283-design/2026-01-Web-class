@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS 박스 모델과 배치 속성 연습</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 1rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7ff;
+    }
+    .page {
+      max-width: 1000px;
+      margin: auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 0.8rem;
+      color: #243d66;
+    }
+    .section {
+      margin-bottom: 1.2rem;
+      border-left: 4px solid #4a148c;
+      padding-left: 0.8rem;
+    }
+    .title {
+      margin: 0.4rem 0 0.6rem;
+      color: #1d3f72;
+      font-size: 1.08rem;
+    }
+
+    /* 박스 모델 예제: content, padding, border, margin */
+    .box-row {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .box {
+      min-width: 14rem;
+      flex: 1;
+      padding: 0.6rem; /* padding: 내부 여백 */
+      border: 3px solid #3f51b5; /* border: 테두리 */
+      margin: 0.5rem; /* margin: 외부 여백 */
+      background: #e8eaf6;
+      color: #1b237e;
+      border-radius: 8px;
+    }
+    .box-1 { padding: 8px; border-width: 2px; margin: 4px; background: #f8bbd0; }
+    .box-2 { padding: 16px; border-width: 4px; margin: 12px; background: #c5e1a5; }
+    .box-3 { padding: 24px; border-width: 6px; margin: 20px; background: #ffe082; }
+
+    .inline-row span {
+      border: 1px solid #1976d2;
+      background: #e3f2fd;
+      margin: 0 0.2rem;
+      padding: 0.2rem 0.35rem;
+    }
+    .inline-row .inline-block {
+      display: inline-block; /* inline-block: 인라인 흐름, 블록 성격 */
+      width: 130px;
+      height: 70px;
+      background: #d1c4e9;
+      margin: 0.2rem;
+      border: 1px solid #512da8;
+      vertical-align: top;
+      text-align: center;
+      line-height: 70px;
+    }
+    .flex-box {
+      display: flex; /* flex: 유연한 행/열 배치 */
+      gap: 0.6rem;
+      background: #e1f5fe;
+      border: 1px dashed #0288d1;
+      padding: 0.4rem;
+    }
+    .flex-box > div {
+      background: #b3e5fc;
+      border: 1px solid #0277bd;
+      border-radius: 4px;
+      flex: 1;
+      text-align: center;
+      padding: 0.5rem;
+    }
+    .grid-box {
+      display: grid; /* grid: 2차원 격자 배치 */
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      background: #f3e5f5;
+      border: 1px dashed #8e24aa;
+      padding: 0.4rem;
+    }
+    .grid-box > div {
+      background: #f8bbd0;
+      border: 1px solid #880e4f;
+      border-radius: 4px;
+      text-align: center;
+      padding: 0.4rem;
+    }
+    .relative-box {
+      position: relative; /* position: relative -> 기준 위치 설정 */
+      background: #e8f5e9;
+      border: 1px solid #2e7d32;
+      min-height: 150px;
+      padding: 0.6rem;
+      border-radius: 6px;
+    }
+    .absolute-child {
+      position: absolute; /* position: absolute -> 부모나 초기 컨테이너 상대 위치 */
+      top: 15px;
+      right: 15px;
+      background: #ffcc80;
+      border: 1px solid #ef6c00;
+      padding: 0.25rem 0.45rem;
+      border-radius: 4px;
+    }
+    .relative-child {
+      position: relative;
+      top: 10px;
+      left: 10px;
+      background: #c8e6c9;
+      padding: 0.25rem 0.4rem;
+      border-radius: 4px;
+      border: 1px solid #388e3c;
+    }
+
+    .info {
+      margin-top: 0.3rem;
+      font-size: 0.9rem;
+      color: #3e3e3e;
+      background: #f6f6f6;
+      border-left: 3px solid #4a148c;
+      padding: 0.45rem;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>CSS 박스 모델 + 배치 속성 비교</h1>
+
+    <section class="section">
+      <h2 class="title">1) 박스 모델: content, padding, border, margin</h2>
+      <div class="box-row">
+        <div class="box box-1">
+          <strong>Box1</strong>
+          <p>content 크기 + padding 8px + border 2px + margin 4px</p>
+        </div>
+        <div class="box box-2">
+          <strong>Box2</strong>
+          <p>content 크기 + padding 16px + border 4px + margin 12px</p>
+        </div>
+        <div class="box box-3">
+          <strong>Box3</strong>
+          <p>content 크기 + padding 24px + border 6px + margin 20px</p>
+        </div>
+      </div>
+      <div class="info">체크: margin은 밖에 여백, padding은 안쪽 여백, border는 테두리, content는 실제 내용 박스입니다.</div>
+    </section>
+
+    <section class="section">
+      <h2 class="title">2) display: block, inline, inline-block</h2>
+      <div class="info">block은 너비 전체, inline은 콘텐츠만, inline-block은 인라인 흐름이지만 크기 지정 가능.</div>
+      <div style="background:#fff3e0;border:1px solid #ffb74d;padding:0.4rem;border-radius:6px;">
+        <div style="display:block;background:#ffab91;border:1px solid #d84315;padding:0.35rem;">display: block</div>
+        <span style="display:inline;background:#ffe082;border:1px solid #ff8f00;padding:0.35rem;">display: inline</span>
+        <span class="inline-block">display: inline-block</span>
+      </div>3
+    </section>
+
+    <section class="section">
+      <h2 class="title">3) display: flex</h2>
+      <div class="flex-box">
+        <div>flex item 1</div>
+        <div>flex item 2</div>
+        <div>flex item 3</div>
+      </div>
+      <div class="info">flex는 행/열 사이즈 조정, 간격 처리, 정렬을 쉽게 합니다.</div>
+    </section>
+
+    <section class="section">
+      <h2 class="title">4) display: grid</h2>
+      <div class="grid-box">
+        <div>grid item A</div>
+        <div>grid item B</div>
+        <div>grid item C</div>
+        <div>grid item D</div>
+        <div>grid item E</div>
+        <div>grid item F</div>
+      </div>
+      <div class="info">grid는 행/열을 명시적으로 설정하여 2차원 레이아웃을 구성합니다.</div>
+    </section>
+
+    <section class="section">
+      <h2 class="title">5) position: relative + absolute</h2>
+      <div class="relative-box">
+        <div class="absolute-child">absolute</div>
+        <div class="relative-child">relative</div>
+        <p>position: relative가 있는 부모 박스를 기준으로 absolute 자식이 위치합니다.</p>
+      </div>
+      <div class="info">절대 위치는 가장 가까운 position 속성이 있는 조상 기준입니다. relative는 원래 위치 기준 이동합니다.</div>
+    </section>
+  </div>
+</body>
+</html>
