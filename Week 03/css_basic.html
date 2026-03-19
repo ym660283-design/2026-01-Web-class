@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS 기본 예제 - 선택자와 텍스트 스타일</title>
+  <style>
+    /* 태그 선택자: 모든 <h1>에 작동 */
+    h1 {
+      color: #1a73e8; /* 헥스 코드 색상 */
+      background-color: #e8f0fe; /* 배경색 */
+      font-family: 'Arial', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.4;
+      letter-spacing: 1px;
+      text-decoration: underline;
+      padding: 0.6rem;
+      margin-bottom: 0.7rem;
+      border-radius: 8px;
+    }
+
+    /* 클래스 선택자: .box 클래스에 작동 */
+    .box {
+      border: 2px dashed #6a1b9a;
+      background-color: rgb(243, 229, 245); /* rgb 색상 */
+      color: #4a148c;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+      font-style: italic;
+      font-weight: 500;
+      line-height: 1.6;
+      letter-spacing: 0.5px;
+      padding: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+
+    /* ID 선택자: #main-text에 작동 */
+    #main-text {
+      color: rgba(27, 94, 32, 0.95); /* rgba 색상 */
+      background-color: #e8f5e9;
+      font-family: 'Courier New', monospace;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-align: justify;
+      line-height: 1.8;
+      letter-spacing: 0.4px;
+      text-decoration: none;
+      border-left: 5px solid #2e7d32;
+      padding-left: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    /* 어트리뷰트 선택자: [data-role]에 있는 요소에 작동 */
+    [data-role="status"] {
+      color: #ffffff;
+      background-color: #ff7043;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.4;
+      letter-spacing: 0.8px;
+      padding: 0.4rem 0.6rem;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    /* 하위 선택자: .module 안에 있는 <p> 요소에 작동 */
+    .module p {
+      color: #1f3a93;
+      background-color: #e9edf7;
+      font-family: 'Verdana', Geneva, Tahoma, sans-serif;
+      font-size: 0.95rem;
+      font-style: normal;
+      font-weight: 500;
+      text-align: left;
+      line-height: 1.7;
+      letter-spacing: 0.3px;
+      padding: 0.4rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    /* 자식 선택자: .module > p에 작동 (직계 자식) */
+    .module > p {
+      border-left: 4px solid #1a237e;
+      margin-left: 0;
+      padding-left: 0.5rem;
+    }
+
+    /* 형제 선택자: h2 + p 에 작동 (바로 다음 형제) */
+    h2 + p {
+      color: #bf360c;
+      font-family: 'Tahoma', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 600;
+      text-align: left;
+      line-height: 1.5;
+      letter-spacing: 0.35px;
+      background-color: #fff3e0;
+      border: 1px solid #ffcc80;
+      border-radius: 4px;
+      padding: 0.4rem;
+    }
+
+    /* 일반 형제 선택자: h2 ~ p (h2 아래 모든 같은 레벨의 p) */
+    h2 ~ p {
+      color: #0d47a1;
+      font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      line-height: 1.55;
+      letter-spacing: 0.3px;
+      background-color: #e3f2fd;
+      padding: 0.3rem;
+      border-radius: 3px;
+    }
+
+    body {
+      background: linear-gradient(180deg, #f3f7ff 0%, #ffffff 100%);
+      margin: 0;
+      padding: 1.2rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #1d1d1d;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: auto;
+      background: #ffffff;
+      border: 1px solid #d9d9d9;
+      border-radius: 10px;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+      padding: 1rem 1.2rem;
+    }
+
+    .section {
+      margin-bottom: 1.1rem;
+      border-left: 4px solid #4a148c;
+      padding-left: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>CSS 선택자와 텍스트 스타일 예제</h1>
+
+    <div class="section">
+      <h2>1. 태그 선택자</h2>
+      <p class="box">이 문장은 <code>h1</code> 태그에 적용되는 스타일을 설명하는 기본 예시입니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>2. 클래스 선택자</h2>
+      <div class="box">
+        <p>이 블록은 <code>.box</code> 클래스에 스타일이 적용됩니다.</p>
+      </div>
+      <p id="main-text">ID 선택자 <code>#main-text</code>가 적용된 이 문장은 텍스트 정렬과 라인 높이를 함께 확인할 수 있도록 구성되었습니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>3. ID 선택자</h2>
+      <p data-role="status">어트리뷰트 선택자 <code>[data-role="status"]</code>가 이 요소에 적용됩니다.</p>
+    </div>
+
+    <div class="section module">
+      <h2>4. 하위, 자식, 형제 선택자</h2>
+      <p>이 문장은 <code>.module p</code> 하위 선택자에 의해 스타일이 지정되었습니다.</p>
+      <p>이 문장은 <code>.module &gt; p</code> 자식 선택자에 의해 추가 스타일이 적용됩니다.</p>
+      <p>이 문장은 <code>h2 + p</code> 바로 다음 형제 선택자에 의해 다르게 표시됩니다.</p>
+      <p>이 문장은 <code>h2 ~ p</code> 일반 형제 선택자에 의해 스타일이 적용됩니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>5. 여러 셀렉터로 시각 차이</h2>
+      <p class="box">서로 다른 셀렉터에서 색상과 텍스트 스타일을 분명히 구분했습니다.</p>
+      <p id="main-text">같은 HTML 내 여러 셀렉터가 각각 다른 스타일을 적용하는 예를 한눈에 보세요.</p>
+    </div>
+  </div>
+</body>
+</html>
