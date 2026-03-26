@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Function Example</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 24px;
+    }
+
+    input, button {
+      padding: 8px;
+      margin-right: 8px;
+      margin-bottom: 12px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 320px;
+    }
+
+    th, td {
+      border: 1px solid #999999;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>두 수의 합 구하기</h1>
+
+  <input type="number" id="num1" placeholder="첫 번째 수">
+  <input type="number" id="num2" placeholder="두 번째 수">
+  <button onclick="showSum()">합계 계산</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>첫 번째 수</th>
+        <th>두 번째 수</th>
+        <th>합계</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="value1">-</td>
+        <td id="value2">-</td>
+        <td id="sumResult">-</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    function addNumbers(a, b) {
+      return a + b;
+    }
+
+    function showSum() {
+      const num1 = Number(document.getElementById("num1").value);
+      const num2 = Number(document.getElementById("num2").value);
+      const sum = addNumbers(num1, num2);
+
+      document.getElementById("value1").textContent = num1;
+      document.getElementById("value2").textContent = num2;
+      document.getElementById("sumResult").textContent = sum;
+    }
+  </script>
+</body>
+</html>

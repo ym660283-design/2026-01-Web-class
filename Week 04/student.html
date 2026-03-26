@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Object Example</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 24px;
+      line-height: 1.7;
+    }
+
+    #result {
+      margin-top: 20px;
+      padding: 16px;
+      border: 1px solid #cccccc;
+      background-color: #f8f8f8;
+    }
+  </style>
+</head>
+<body>
+  <h1>학생 객체 예제</h1>
+  <div id="result"></div>
+
+  <script>
+    const name = prompt("이름을 입력하세요.");
+    const studentId = prompt("학번을 입력하세요.");
+    const major = prompt("전공을 입력하세요.");
+
+    const student = {
+      name: name,
+      studentId: studentId,
+      major: major,
+      introduce: function() {
+        return "안녕하세요. 제 이름은 " + this.name + "이고, 학번은 " + this.studentId + "이며, 전공은 " + this.major + "입니다.";
+      }
+    };
+
+    document.getElementById("result").innerHTML = student.introduce();
+  </script>
+</body>
+</html>

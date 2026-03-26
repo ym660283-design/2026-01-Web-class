@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Basic Example</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 24px;
+      line-height: 1.7;
+    }
+
+    #result {
+      padding: 16px;
+      border: 1px solid #cccccc;
+      background-color: #f8f8f8;
+    }
+  </style>
+</head>
+<body>
+  <h1>배열과 filter() 예제</h1>
+  <div id="result"></div>
+
+  <script>
+    const numbers = [];
+
+    for (let i = 0; i < 10; i++) {
+      numbers.push(Math.floor(Math.random() * 101));
+    }
+
+    let total = 0;
+
+    for (let i = 0; i < numbers.length; i++) {
+      total += numbers[i];
+    }
+
+    const average = total / numbers.length;
+    const lowScores = numbers.filter(function(score) {
+      return score < 60;
+    });
+
+    const resultDiv = document.getElementById("result");
+    resultDiv.innerHTML =
+      "배열 값: " + numbers.join(", ") + "<br>" +
+      "평균: " + average.toFixed(2) + "<br>" +
+      "60점 미만 점수: " + (lowScores.length > 0 ? lowScores.join(", ") : "없음");
+  </script>
+</body>
+</html>
