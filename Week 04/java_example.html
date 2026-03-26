@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Example</title>
+</head>
+<body>
+  <h1>전역변수와 지역변수 예제</h1>
+
+  <script>
+    // 전역변수: 함수 밖에서 선언하여 어디서든 사용할 수 있습니다.
+    var name = "홍길동";
+    let age = 20;
+
+    // 함수를 만들어 전역변수와 지역변수를 구분해서 사용합니다.
+    function showStudentInfo() {
+      // 지역변수: 함수 안에서만 사용할 수 있습니다.
+      const studentId = "20260001";
+
+      // alert()로 화면에 학생 정보를 출력합니다.
+      alert("이름: " + name + "\n나이: " + age + "\n학번: " + studentId);
+    }
+
+    // 함수 호출
+    showStudentInfo();
+  </script>
+</body>
+</html>
