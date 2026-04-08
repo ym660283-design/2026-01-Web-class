@@ -9,6 +9,6 @@ public class RectangleDemo {
         System.out.println("랜덤 생성된 사각형 1: " + rect2);
         System.out.println("랜덤 생성된 사각형 2: " + rect3);
         System.out.println();
-        System.out.println("전체 사각형 수: " + Rectangle.getTotalRectangles());
+        System.out.println("전체 도형 수: " + Shape.getTotalShapes());
     }
 }
