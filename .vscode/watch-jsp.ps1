@@ -1,5 +1,6 @@
-$sourceDir = Join-Path $PSScriptRoot ".."
-$targetDir = "C:\xampp\tomcat\webapps\ROOT"
+$workspaceDir = Resolve-Path -LiteralPath (Join-Path $PSScriptRoot "..")
+$sourceDir = Join-Path $workspaceDir "Week 08\2. CalcJSP\CalcJSP\src\main\webapp"
+$targetDir = "C:\xampp\tomcat\webapps\CalcJSP"
 
 if (-not (Test-Path -LiteralPath $sourceDir)) {
     Write-Error "Source directory not found: $sourceDir"
@@ -11,7 +12,7 @@ if (-not (Test-Path -LiteralPath $targetDir)) {
     exit 1
 }
 
-function Sync-JspFile {
+function Sync-WebFile {
     param(
         [Parameter(Mandatory = $true)]
         [string]$Path
@@ -21,37 +22,44 @@ function Sync-JspFile {
         return
     }
 
-    if ([System.IO.Path]::GetExtension($Path) -ne ".jsp") {
+    $extension = [System.IO.Path]::GetExtension($Path)
+    if ($extension -notin @(".html", ".jsp", ".xml")) {
         return
     }
 
-    $fileName = [System.IO.Path]::GetFileName($Path)
-    $destination = Join-Path $targetDir $fileName
+    $relativePath = [System.IO.Path]::GetRelativePath((Resolve-Path -LiteralPath $sourceDir).Path, $Path)
+    $destination = Join-Path $targetDir $relativePath
+    $destinationDir = Split-Path -Parent $destination
+
+    if (-not (Test-Path -LiteralPath $destinationDir)) {
+        New-Item -ItemType Directory -Path $destinationDir -Force | Out-Null
+    }
+
     Copy-Item -LiteralPath $Path -Destination $destination -Force
-    Write-Host "Synced $fileName"
+    Write-Host "Synced $relativePath"
 }
 
-Get-ChildItem -LiteralPath $sourceDir -Filter *.jsp -File -Recurse | ForEach-Object {
-    Sync-JspFile -Path $_.FullName
+Get-ChildItem -LiteralPath $sourceDir -File -Recurse | ForEach-Object {
+    Sync-WebFile -Path $_.FullName
 }
 
 $watcher = New-Object System.IO.FileSystemWatcher
 $watcher.Path = (Resolve-Path -LiteralPath $sourceDir).Path
-$watcher.Filter = "*.jsp"
+$watcher.Filter = "*.*"
 $watcher.IncludeSubdirectories = $true
 $watcher.NotifyFilter = [System.IO.NotifyFilters]'FileName, LastWrite, CreationTime'
 $watcher.EnableRaisingEvents = $true
 
 $action = {
     Start-Sleep -Milliseconds 150
-    Sync-JspFile -Path $Event.SourceEventArgs.FullPath
+    Sync-WebFile -Path $Event.SourceEventArgs.FullPath
 }
 
 Register-ObjectEvent -InputObject $watcher -EventName Changed -Action $action | Out-Null
 Register-ObjectEvent -InputObject $watcher -EventName Created -Action $action | Out-Null
 Register-ObjectEvent -InputObject $watcher -EventName Renamed -Action $action | Out-Null
 
-Write-Host "Watching JSP files in $sourceDir"
+Write-Host "Watching web files in $sourceDir"
 Write-Host "Deploying to $targetDir"
 
 while ($true) {
