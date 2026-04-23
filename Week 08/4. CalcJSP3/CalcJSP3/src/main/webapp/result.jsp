@@ -5,9 +5,9 @@
 <title>간단한 계산기</title>
 </head>
 <body>
-<h1>계산 결과(JSP2)</h1>
+<h1>계산 결과(JSP3)</h1>
 <p>이 파일은 result.jsp 파일입니다.</p>
 <hr>
-결과: <%= request.getAttribute("result") %>
+결과: <%= request.getParameter("result") %>
 </body>
 </html>
